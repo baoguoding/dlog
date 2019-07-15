@@ -1,0 +1,5 @@
+# sit configuration
+
+# 日志配置文件存放的位置
+logging:
+  config: D:\github\logback\src\main\resources\logback.xml

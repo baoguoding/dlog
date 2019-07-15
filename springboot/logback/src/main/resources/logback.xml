@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- scanPeriod 重新加载日志配置的时间间隔 -->
+<configuration debug="false" scan="true" scanPeriod="5 seconds">
+	<timestamp key="date" datePattern="yyyyMMdd" />
+	<!-- Output to Console -->
+	<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %level %c:%L - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<!-- Output to File -->
+	<appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>main.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				main.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<!-- keep 1 days worth of history -->
+			<MaxHistory>10</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %level %c:%L - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	<!-- 打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和  OFF 默认是DEBUG -->
+	<root level="ERROR">
+		<appender-ref ref="Console" />
+		<appender-ref ref="File" />
+	</root>
+	<!-- 可以将下面的任意行注释，观察效果-->
+	<logger name="com.baoguoding.logback.trace" level="TRACE" />
+	<logger name="com.baoguoding.logback.debug" level="DEBUG" />
+	<logger name="com.baoguoding.logback.info" level="INFO" />
+	<logger name="com.baoguoding.logback.warn" level="WARN" />
+	<logger name="com.baoguoding.logback.error" level="ERROR" />
+</configuration>

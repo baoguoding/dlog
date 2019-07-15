@@ -1,0 +1,5 @@
+# prd configuration
+
+# 日志配置文件存放的位置
+logging:
+  config: config/logback.xml
