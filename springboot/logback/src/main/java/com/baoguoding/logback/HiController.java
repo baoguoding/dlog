@@ -13,8 +13,11 @@ public class HiController {
 
     @RequestMapping("/")
     public String index() {
-        // 占位符
-        logger.debug("hi, welcome {}, today is {}","admin","Sunday");
+        logger.trace("trace");
+        logger.debug("debug");
+        logger.info("info");
+        logger.warn("warn");
+        logger.error("error");
         return "slf4j logback demo!";
     }
 
